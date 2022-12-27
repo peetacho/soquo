@@ -1,0 +1,28 @@
+{
+  "name": "soquo",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@chakra-ui/icons": "^2.0.13",
+    "@chakra-ui/react": "^2.4.3",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "axios": "^1.2.1",
+    "cheerio": "^1.0.0-rc.12",
+    "dotenv": "^16.0.3",
+    "eslint": "8.29.0",
+    "eslint-config-next": "13.0.6",
+    "firebase": "^9.15.0",
+    "framer-motion": "^7.9.1",
+    "next": "13.0.6",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-icons": "^4.7.1"
+  }
+}
