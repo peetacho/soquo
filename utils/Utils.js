@@ -1,25 +1,34 @@
 import axios from "axios";
 
 export const getCoordinates = async (postalCode) => {
-    const response = await axios.get(
-        'https://geocoder.ca/?geoit=XML&json=1',
-        {
-            params: {
-                locate: postalCode,
+    try {
+        const response = await axios.get(
+            'https://geocoder.ca/?geoit=XML&json=1',
+            {
+                params: {
+                    locate: postalCode,
+                },
             },
-        },
-    );
+        );
 
-    const html = response.data;
-    return {
-        coordinates: {
-            latitude: html.latt,
-            longitude: html.longt,
-        },
-        postalCode: html.postal,
-        city: html.standard.city,
-        province: html.standard.prov,
-    };
+        const html = response.data;
+        return {
+            success: true,
+            coordinates: {
+                latitude: html.latt,
+                longitude: html.longt,
+            },
+            postalCode: html.postal,
+            city: html.standard.city,
+            province: html.standard.prov,
+        };
+    }
+    catch {
+        return {
+            success: false,
+            message: 'Postal Code ' + postalCode + ' is invalid or does not exist.'
+        }
+    }
 }
 
 export const getDistance = (coord1, coord2) => {

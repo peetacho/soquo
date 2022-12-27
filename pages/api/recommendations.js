@@ -1,14 +1,27 @@
 import { db } from "../../utils/db";
-import { getDoc, doc } from "firebase/firestore";
+import { getDocs, query, collection } from "firebase/firestore";
 import { getCoordinates, getDistance } from "../../utils/Utils";
 
 export default async function handler(req, res) {
-    const userPostalCode = req.query.postalCode
-    const userCoordinateData = await getCoordinates(userPostalCode);
-    const coord2 = {
-        latitude: 43.999741,
-        longitude: -79.455489
+    if (!req.query.postalCode) {
+        res.status(400).json({ success: false, message: 'Bad request. Missing postalCode in params.', contractors: null })
+        return;
     }
-    const distance = getDistance(userCoordinateData.coordinates, coord2);
-    res.status(200).json({ success: true, message: 'coordinates found', data: userCoordinateData, distance: distance });
+    const userPostalCode = req.query.postalCode;
+    const userCoordinateData = await getCoordinates(userPostalCode)
+    if (!userCoordinateData.success) {
+        res.status(404).json(userCoordinateData)
+        return;
+    }
+    const querydb = query(collection(db, "Contractors"));
+    var contractorRecs = [];
+    const querySnapshot = await getDocs(querydb);
+    querySnapshot.forEach((doc) => {
+        contractorRecs.push({
+            ...doc.data(),
+            distanceToUser: getDistance(userCoordinateData.coordinates, doc.data().coordinates)
+        })
+    });
+    contractorRecs = contractorRecs.sort((a, b) => a.distanceToUser - b.distanceToUser).slice(0, 3);
+    res.status(200).json({ success: true, message: 'Recommendations found', contractors: contractorRecs });
 }
