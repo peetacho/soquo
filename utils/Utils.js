@@ -11,22 +11,51 @@ export const getCoordinates = async (postalCode) => {
             },
         );
 
-        const html = response.data;
+        const data = response.data;
         return {
             success: true,
             coordinates: {
-                latitude: html.latt,
-                longitude: html.longt,
+                latitude: data.latt,
+                longitude: data.longt,
             },
-            postalCode: html.postal,
-            city: html.standard.city,
-            province: html.standard.prov,
+            postalCode: data.postal,
+            city: data.standard.city,
+            province: data.standard.prov,
         };
     }
     catch {
         return {
             success: false,
             message: 'Postal Code ' + postalCode + ' is invalid or does not exist.'
+        }
+    }
+}
+
+export const getHoursOfSunlight = async (coord) => {
+    try {
+        const response = await axios.get(
+            'https://api.sunrise-sunset.org/json',
+            {
+                params: {
+                    lat: coord.latitude,
+                    lng: coord.longitude,
+                    formatted: 0,
+                },
+            },
+        );
+
+        const data = response.data;
+        return {
+            success: true,
+            sunrise: data.results.sunrise,
+            sunset: data.results.sunset,
+            day_length: data.results.day_length / 3600, // convert seconds to hours
+        };
+    }
+    catch {
+        return {
+            success: false,
+            message: `Coordinates (${coord.latitude}, ${coord.longitude}) is invalid or hours of sunlight is not available for that location.`
         }
     }
 }
