@@ -7,6 +7,7 @@ export const getCoordinates = async (postalCode) => {
             {
                 params: {
                     locate: postalCode,
+                    country: 'canada'
                 },
             },
         );
@@ -79,4 +80,30 @@ export const getDistance = (coord1, coord2) => {
     const distance = 6371 * c; // 6371 is the radius of the Earth in kilometers
 
     return distance; // in kilometers
+}
+
+
+export const getAverageElectricityCost = (countryCode) => {
+
+    // https://www.energyhub.org/electricity-prices/#post-7165
+    const countryToCostDict = {
+        'ON': 0.13,
+        'QC': 0.073,
+        'MB': 0.099,
+        'BC': 0.126,
+        'NB': 0.127,
+        'NL': 0.138,
+        'AB': 0.166,
+        'NS': 0.171,
+        'PE': 0.174,
+        'SK': 0.181,
+        'YT': 0.187,
+        'NU': 0.375,
+        'NT': 0.382,
+    }
+
+    if (countryCode in countryToCostDict) {
+        return countryToCostDict[countryCode];
+    }
+    return 0.179 // canada average - the code reaches here only if countryCode is not a valid canadian province
 }
