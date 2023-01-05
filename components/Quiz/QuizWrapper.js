@@ -1,5 +1,7 @@
+import { Stack } from "@chakra-ui/react";
 import GeneralStackWrapper from "../General/GeneralStackWrapper";
 import Header from "./Header";
+import QuizBar from "./QuizBar";
 
 export default function QuizWrapper({
     ...otherProps
@@ -8,7 +10,10 @@ export default function QuizWrapper({
         <>
             <GeneralStackWrapper>
                 <Header />
-                {otherProps.children}
+                <Stack gap={'15px'} textAlign={'center'}>
+                    <QuizBar />
+                    {otherProps.children}
+                </Stack>
             </GeneralStackWrapper>
         </>
     )

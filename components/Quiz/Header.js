@@ -1,5 +1,5 @@
 import { ChevronLeftIcon } from "@chakra-ui/icons";
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
 import BoldedTextButton from "../General/BoldedTextButton";
 import GeneralLinkWrapper from '../General/GeneralLinkWrapper';
 import { useRouter } from 'next/router'
@@ -10,25 +10,23 @@ import { quizOrder } from "../../utils/constants";
 const Header = () => {
     const router = useRouter()
     var backHref = '/'
-    if (router.asPath !== '/quiz') {
+    if (router.asPath !== '/form') {
         // this assumes the user is behaving (i.e. they go on the correct routes)
         var currentQuestion = getCurrentQuestion(router)
         if (currentQuestion.id !== 0) {
-            backHref = '/quiz/' + quizOrder[currentQuestion.id - 1].route
+            backHref = '/form/' + quizOrder[currentQuestion.id - 1].route
         }
         else if (currentQuestion.id == 0) {
-            backHref = '/quiz'
+            backHref = '/form'
         }
     }
     return (
         <>
-            <Flex flexDirection={'row'} width={'100%'} justifyContent={'space-between'} alignItems={'center'}>
+            <Flex flexDirection={'row'} width={'100%'} justifyContent={'space-between'} alignItems={'center'} marginBottom={'30px'}>
                 <Box flexGrow={1} flexBasis={0}>
                     <GeneralLinkWrapper href={backHref}>
                         <ChevronLeftIcon />
-                        {
-                            router.asPath === '/quiz' ? 'Home' : 'Back'
-                        }
+                        {router.asPath === '/form' ? 'Home' : 'Back'}
                     </GeneralLinkWrapper>
                 </Box>
                 <Logo />

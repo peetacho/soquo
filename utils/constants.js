@@ -1,9 +1,9 @@
 
 export const ROUTE_LOCATION = 'location'
-export const ROUTE_POSTAL = 'postal-code'
-export const ROUTE_SPACE = 'space'
+export const ROUTE_POSTAL = 'postal'
+export const ROUTE_AREA = 'area'
 export const ROUTE_TILT = 'tilt'
-export const ROUTE_ELEC = 'electric-bill'
+export const ROUTE_ELEC = 'electric'
 
 export const quizOrder = [
     {
@@ -16,7 +16,7 @@ export const quizOrder = [
     },
     {
         id: 2,
-        route: ROUTE_SPACE
+        route: ROUTE_AREA
     },
     {
         id: 3,

@@ -113,5 +113,5 @@ import { quizOrder } from "./constants";
 
 // route is from useRouter
 export const getCurrentQuestion = (router) => {
-    return quizOrder.filter(question => router.asPath === '/quiz/' + question.route)[0]
+    return quizOrder.filter(question => router.asPath === '/form/' + question.route)[0]
 }
