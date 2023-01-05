@@ -1,3 +1,4 @@
+//////////// BACKEND ////////////
 import axios from "axios";
 
 export const getCoordinates = async (postalCode) => {
@@ -82,7 +83,6 @@ export const getDistance = (coord1, coord2) => {
     return distance; // in kilometers
 }
 
-
 export const getAverageElectricityCost = (countryCode) => {
 
     // https://www.energyhub.org/electricity-prices/#post-7165
@@ -106,4 +106,12 @@ export const getAverageElectricityCost = (countryCode) => {
         return countryToCostDict[countryCode];
     }
     return 0.179 // canada average - the code reaches here only if countryCode is not a valid canadian province
+}
+
+//////////// FRONTEND ////////////
+import { quizOrder } from "./constants";
+
+// route is from useRouter
+export const getCurrentQuestion = (router) => {
+    return quizOrder.filter(question => router.asPath === '/quiz/' + question.route)[0]
 }

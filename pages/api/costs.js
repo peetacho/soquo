@@ -30,13 +30,11 @@ export default async function handler(req, res) {
     // Recommended number of solar panels = FLOOR(space allowed (sqft) / physical size of panel (sqft))
     const recommendedNumberOfSolarPanels = Math.floor(req.query.spaceAllowed / averageSizeOfPanel)
 
+    // Savings in electricity costs = (Cost of electricity * Electricity produced by the solar panel)
     var annualHoursOfSunlight = 2000; // hr
     const solarPanelOutput = 300 * recommendedNumberOfSolarPanels // watt
     var whToKWh = 0.001; // kWh/Wh
-
     const energyProduced = solarPanelOutput * annualHoursOfSunlight * whToKWh; // kWh
-
-    // Savings in electricity costs = (Cost of electricity * Electricity produced by the solar panel)
     const savings = userElectricityCost * energyProduced // $
 
     res.status(200).json({
@@ -45,7 +43,6 @@ export default async function handler(req, res) {
         userElectricityCost: userElectricityCost,
         solarPanelOutput: solarPanelOutput,
         recommendedNumberOfSolarPanels: recommendedNumberOfSolarPanels,
-        energyProduced: energyProduced,
         savings: savings
     });
 }
