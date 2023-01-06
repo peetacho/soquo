@@ -123,12 +123,13 @@ export const updateFormAnswers = (router, ans) => {
     // when soquo-form-answers has not been created yet (formAnswersList is null) or formAnswersList is empty
     if (formAnswersList === null || formAnswersList.length === 0) {
         formAnswersList = []
-        for (var item in quizOrder) {
+        quizOrder.forEach((item) => {
             formAnswersList.push({
+                id: item.id,
+                route: '/form/' + item.route,
                 answer: '',
-                ...item
             })
-        }
+        })
     }
     formAnswersList[questionIndex].answer = ans;
     localStorage.setItem("soquo-form-answers", JSON.stringify(formAnswersList))
