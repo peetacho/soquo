@@ -115,3 +115,25 @@ import { quizOrder } from "./constants";
 export const getCurrentQuestion = (router) => {
     return quizOrder.filter(question => router.asPath === '/form/' + question.route)[0]
 }
+
+export const updateFormAnswers = (router, ans) => {
+    var questionIndex = getCurrentQuestion(router).id
+    var formAnswersList = JSON.parse(localStorage.getItem("soquo-form-answers"))
+
+    // when soquo-form-answers has not been created yet (formAnswersList is null) or formAnswersList is empty
+    if (formAnswersList === null || formAnswersList.length === 0) {
+        formAnswersList = []
+        for (var item in quizOrder) {
+            formAnswersList.push({
+                answer: '',
+                ...item
+            })
+        }
+    }
+    formAnswersList[questionIndex].answer = ans;
+    localStorage.setItem("soquo-form-answers", JSON.stringify(formAnswersList))
+}
+
+export const deleteFormAnswers = () => {
+    localStorage.setItem("soquo-form-answers", "[]")
+}

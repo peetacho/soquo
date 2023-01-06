@@ -20,10 +20,10 @@ const QuizBar = () => {
     const MAX_NUM = 6
     for (let i = 0; i < MAX_NUM; i++) {
         if (i <= index) {
-            oranges.push(<BarThings color={'brand.400'} />)
+            oranges.push(<BarThings key={i} color={'brand.400'} />)
         }
         else {
-            oranges.push(<BarThings color={'bar.400'} />)
+            oranges.push(<BarThings key={i} color={'bar.400'} />)
         }
     }
     return (

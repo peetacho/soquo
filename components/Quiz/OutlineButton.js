@@ -1,12 +1,23 @@
 import { Box, Icon, Text } from "@chakra-ui/react"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 const OutlineButton = ({
     icon,
     bigText,
-    smolText
+    value,
+    smolText,
+    selectedOption,
+    setOption,
+    onClick
 }) => {
     const [toggle, setToggle] = useState(false);
+
+    useEffect(() => {
+        if (selectedOption !== value) {
+            setToggle(false);
+        }
+    }, [selectedOption, value]);
+
     return (
         <Box borderRadius='30px'
             bg={toggle ? 'brand.400' : 'white'}
@@ -20,11 +31,9 @@ const OutlineButton = ({
             px={'12px'}
             _hover={{ cursor: 'pointer', bg: 'brand.400', color: 'white', borderColor: 'brand.200' }}
             onClick={() => {
-                setToggle(true)
-                new Promise(r => setTimeout(r, 200)).then(() => {
-                    setToggle(false);
-                    console.log('redirecting now!')
-                });
+                setToggle(true);
+                setOption(value)
+                if (onClick) onClick();
             }}>
             <Icon as={icon} boxSize={6} />
             <Text mt={'10px'} fontSize={'18px'} fontWeight={'bold'}>{bigText}</Text>

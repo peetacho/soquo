@@ -2,7 +2,6 @@ import NextLink from 'next/link'
 import { Link } from "@chakra-ui/react";
 
 const GeneralLinkWrapper = ({
-    display,
     href,
     isExternal,
     ...otherProps

@@ -22,7 +22,7 @@ const Header = () => {
     }
     return (
         <>
-            <Flex flexDirection={'row'} width={'100%'} justifyContent={'space-between'} alignItems={'center'} marginBottom={'30px'}>
+            <Flex flexDirection={'row'} width={'100%'} justifyContent={'space-between'} alignItems={'center'} marginBottom={'50px'}>
                 <Box flexGrow={1} flexBasis={0}>
                     <GeneralLinkWrapper href={backHref}>
                         <ChevronLeftIcon />
