@@ -14,6 +14,8 @@ const OutlineInput = ({
             borderWidth={'4px'}
             borderColor={'brand.400'}
             height={'50px'}
+            _hover={{ borderColor: 'brand.400' }}
+            _focus={{ borderColor: 'brand.200', boxShadow: 'none' }}
         />
     )
 }

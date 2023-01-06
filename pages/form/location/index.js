@@ -9,6 +9,27 @@ import GeneralLinkWrapper from "../../../components/General/GeneralLinkWrapper";
 import { getCurrentQuestion, updateFormAnswers } from "../../../utils/Utils";
 import { useRouter } from "next/router";
 
+const buttonOptions = [
+    {
+        value: 'h',
+        bigText: 'Home',
+        icon: BsFillHouseDoorFill,
+        hintLabel: 'your home!'
+    },
+    {
+        value: 's',
+        bigText: 'Small Business',
+        icon: HiBuildingStorefront,
+        hintLabel: 'smol'
+    },
+    {
+        value: 'm',
+        bigText: 'Medium-sized Business',
+        icon: HiBuildingLibrary,
+        hintLabel: 'mid'
+    },
+]
+
 const Location = () => {
     const [selectedOption, setOption] = useState('');
     const router = useRouter();
@@ -17,9 +38,11 @@ const Location = () => {
             headerText={<><Text as={'span'} fontWeight={'bold'}>Where</Text> would you like to install solar panels?</>}
         >
             <Flex justifyContent={'space-between'} gap={'70px'}>
-                <OutlineButton bigText={'Home'} value={'h'} selectedOption={selectedOption} setOption={setOption} icon={BsFillHouseDoorFill} />
-                <OutlineButton bigText={'Small Business'} value={'s'} selectedOption={selectedOption} setOption={setOption} icon={HiBuildingStorefront} />
-                <OutlineButton bigText={'Medium-sized Business'} value={'m'} selectedOption={selectedOption} setOption={setOption} icon={HiBuildingLibrary} />
+                {buttonOptions.map((opt, i) => {
+                    return (
+                        <OutlineButton key={i} selectedOption={selectedOption} setOption={setOption} value={opt.value} bigText={opt.bigText} icon={opt.icon} hintLabel={opt.hintLabel} />
+                    )
+                })}
             </Flex>
             {selectedOption ? (
                 <Flex justifyContent={'center'} mt={'35px !important'}>

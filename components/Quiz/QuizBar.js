@@ -13,7 +13,7 @@ const BarThings = ({
 const QuizBar = () => {
     const router = useRouter()
     var index = -1
-    if (router.asPath !== '/form') {
+    if (router.asPath !== '/form' && getCurrentQuestion(router)) {
         index = getCurrentQuestion(router).id
     }
     const oranges = []

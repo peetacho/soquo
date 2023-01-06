@@ -10,7 +10,7 @@ import { quizOrder } from "../../utils/constants";
 const Header = () => {
     const router = useRouter()
     var backHref = '/'
-    if (router.asPath !== '/form') {
+    if (router.asPath !== '/form' && getCurrentQuestion(router)) {
         // this assumes the user is behaving (i.e. they go on the correct routes)
         var currentQuestion = getCurrentQuestion(router)
         if (currentQuestion.id !== 0) {
