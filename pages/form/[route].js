@@ -45,7 +45,7 @@ const pageOptions = [
         id: 3,
         headerText: (<>What is the <Text as={'span'} fontWeight={'bold'}>tilt</Text> of your roof?</>),
         descriptionText: (<>An approximate degree value for your roof tilt.</>),
-        placeHolderText: 'Add a custom tilt here! (in degrees °)',
+        placeHolderText: 'Add a custom tilt here! (in degrees°)',
         buttonOptions: [
             {
                 value: '0',
