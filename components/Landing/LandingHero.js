@@ -31,15 +31,14 @@ export default function LandingHero() {
             fontWeight={600}
             fontSize={{ base: '2xl', sm: '4xl', md: '6xl' }}
             lineHeight={'110%'}>
-            Your One Stop <br />
+            Your One-Stop <br />
             <Text as={'span'} color={'orange.400'}>
               Solar Shop
             </Text>
           </Heading>
           <Text color={'gray.500'}>
-            Monetize your content by charging your most loyal readers and reward
-            them loyalty points. Give back to your loyal readers by granting
-            them access to your pre-releases and sneak-peaks.
+          Featuring a hub for all things solar, viewable metrics such as return on investments, connects users to contractors, 
+          predicts the efficacy of solar panels in user's area and adapts to the user's budget and needs!
           </Text>
           <Stack
             direction={'column'}
@@ -76,8 +75,8 @@ export default function LandingHero() {
                 right={'-125px'}
                 top={'-15px'}
                 transform={'rotate(10deg)'}>
-                Starting at $15/mo
-              </Text>
+                Get a Quote Today!
+              </Text> 
             </Box>
           </Stack>
         </Stack>
