@@ -22,7 +22,7 @@ import {
   ChevronRightIcon,
 } from '@chakra-ui/icons';
 
-export default function WithSubnavigation() {
+export default function LandingNav() {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
