@@ -40,6 +40,7 @@ export default async function handler(req, res) {
     res.status(200).json({
         success: true,
         message: 'Costs and Savings successfully calculated',
+        breakevenCost: (1 + Math.random()) * 10,
         userElectricityCost: userElectricityCost,
         solarPanelOutput: solarPanelOutput,
         recommendedNumberOfSolarPanels: recommendedNumberOfSolarPanels,
