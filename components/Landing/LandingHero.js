@@ -25,7 +25,7 @@ export default function LandingHero() {
             fontSize={{ base: '2xl', sm: '4xl', md: '7xl' }}
             lineHeight={'110%'}>
             Your One-Stop <br />
-            <Text as={'span'} color={'orange.400'}>
+            <Text as={'span'} color={'#849BFF'}>
               Solar Shop
             </Text>
           </Heading>
@@ -42,11 +42,11 @@ export default function LandingHero() {
             <GeneralLinkWrapper href="/form">
               <Button
                 colorScheme={'orange'}
-                bg={'orange.400'}
+                bg={"#6677C4"}
                 rounded={'full'}
                 px={6}
                 _hover={{
-                  bg: 'orange.500',
+                  bg: '#36438B',
                 }}>
                 Try it Now
               </Button>
@@ -67,7 +67,7 @@ export default function LandingHero() {
                 right={'-125px'}
                 top={'-15px'}
                 transform={'rotate(10deg)'}>
-                Get a Quote Today!
+                Get an Assessment Today!
               </Text>
             </Box>
           </Stack>

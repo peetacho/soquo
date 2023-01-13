@@ -27,7 +27,7 @@ const Feature = ({ text, icon, iconBg }) => {
 
 export default function ResultsRecom() {
   return (
-      <Container maxW={'5xl'} py={12}>
+      <Container maxW={'5xl'} paddingTop={12} paddingBottom={6}>
           <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
               <Stack spacing={4}>
                   <Text
@@ -41,9 +41,9 @@ export default function ResultsRecom() {
                       rounded={'md'}>
                       Recommendations
                   </Text>
-                  <Heading>Nearby Contractors:</Heading>
+                  <Heading>Nearby Contractors</Heading>
                   <Text color={'gray.500'} fontSize={'lg'}>
-                      Find the best contractors for you: 
+                      Find the best contractors for you in your region: 
                   </Text>
               </Stack>
           </SimpleGrid>

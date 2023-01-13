@@ -2,7 +2,7 @@ import ResultsHero from "../../components/Results/ResultsHero";
 import LandingNav from "../../components/Landing/LandingNav";
 import { useEffect, useState } from "react";
 import { getFormAnswers } from "../../utils/Utils";
-import { Box, Flex, Grid, GridItem, Spinner, Text } from "@chakra-ui/react";
+import { Box, Flex, Grid, GridItem, Spinner, Text, VStack } from "@chakra-ui/react";
 import GeneralLinkWrapper from "../../components/General/GeneralLinkWrapper";
 import ResultsSavings from "../../components/Results/ResultsSavings";
 import ResultsGreen from "../../components/Results/ResultsGreen";
@@ -30,15 +30,15 @@ const App = () => {
             solarPanelOutput: costs.solarPanelOutput,
         }), { method: "GET" });
         const greenImpact = await greenImpactResponse.json()
-        const recommendationsResponse = await fetch("/api/recommendations?" + new URLSearchParams({
-            postalCode: answers[1].answer
-        }), { method: "GET" });
-        const recommendations = await recommendationsResponse.json()
+        // const recommendationsResponse = await fetch("/api/recommendations?" + new URLSearchParams({
+        //     postalCode: answers[1].answer
+        // }), { method: "GET" });
+        // const recommendations = await recommendationsResponse.json()
         return {
             solarIndex: solarIndex,
             costs: costs,
             greenImpact: greenImpact,
-            recommendations: recommendations
+            // recommendations: recommendations
         }
     }
 
@@ -69,7 +69,7 @@ const App = () => {
                         <ResultsGreen energykJ={response.greenImpact.energyProduced} trees={response.greenImpact.treesSaved} barrelsOil={response.greenImpact.oilReplaced} kgCoal={response.greenImpact.coalReplaced} />
                         <ResultsIndex score={response.solarIndex.efficiency} />
                         <ResultsRecom />
-                        <Grid templateColumns={'1fr 1fr'}>
+                        {/* <Grid templateColumns={'1fr 1fr'}>
                             {response.recommendations.contractors.map((c, i) => {
                                 return (
                                     <GridItem key={i}>
@@ -77,7 +77,20 @@ const App = () => {
                                     </GridItem>
                                 )
                             })}
-                        </Grid>
+                        </Grid> */}
+                        <VStack marginBottom={150}>
+                            <Grid templateColumns='repeat(3, 1fr)'>
+                                <GridItem>
+                                <ContractorCard name={"Solar Up"} address={"364 Supertest Rd #208, North York, ON M3J 2M2"} phone={"(416) 613-9996"} website={"https://solarup.ca/"}/>
+                                </GridItem>
+                                <GridItem>
+                                <ContractorCard name={"Microgreen"} address={"860 Denison Street, Unit 10 Markham, Ontario, Canada"} phone={"647-699-0420"} website={"https://microgreen.ca/"}/>
+                                </GridItem>
+                                <GridItem>
+                                <ContractorCard name={"New Dawn Energy"} address={"8-7321 Victoria Park Ave Markham, ON L3R 2Z8"} phone={"416-855-9377"} website={"https://newdawn-es.com/"}/>
+                                </GridItem>                            
+                            </Grid>
+                        </VStack>
                     </Box>
                 ) : answers === null ? (
                     <Text>

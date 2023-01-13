@@ -74,7 +74,7 @@ const pageOptions = [
     },
     {
         id: 4,
-        headerText: (<>What is your monthly <Text as={'span'} fontWeight={'bold'}>electric</Text> bill?</>),
+        headerText: (<>What is your monthly <Text as={'span'} fontWeight={'bold'}>electricity</Text> bill?</>),
         descriptionText: null,
         placeHolderText: 'Add a custom electricity bill here! (in $CAD)',
         buttonOptions: [

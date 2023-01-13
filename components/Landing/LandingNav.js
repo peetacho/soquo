@@ -76,12 +76,12 @@ export default function LandingNav() {
               fontSize={'sm'}
               fontWeight={600}
               color={'white'}
-              bg={'orange.400'}
+              bg={'#6677C4'}
               href={'#'}
               _hover={{
-                bg: 'orange.300',
+                bg: '#849BFF',
               }}>
-              Get a Free Quote Today! 
+              Get a Free Assessment Today! 
             </Button>
           </GeneralLinkWrapper>
         </Stack>
@@ -251,7 +251,7 @@ const NAV_ITEMS = [
     href: 'https://medium.com/@soquo/soquo-the-solar-stop-301b0063227a',
   },
   {
-    label: 'Solar Canadian Grants',
+    label: 'Canadian Solar Grants',
     href: 'https://medium.com/@soquo/soquo-solar-canadian-grants-410116f95cd4',
   },
 ];

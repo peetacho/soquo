@@ -13,9 +13,9 @@ import { MdLocationPin, MdPhone, MdWeb} from 'react-icons/md'
 
 export default function ContractorCard({name, address, phone, website}) {
   return (
-    <Center py={6}>
+    <Box py={3} px={3}>
       <Box
-        maxW={'445px'}
+        maxW={'320px'}
         w={'full'}
         bg={useColorModeValue('white', 'gray.900')}
         boxShadow={'2xl'}
@@ -24,7 +24,7 @@ export default function ContractorCard({name, address, phone, website}) {
         overflow={'hidden'}>
         <Stack>
           <Text
-            color={'green.500'}
+            color={'orange.500'}
             textTransform={'uppercase'}
             fontWeight={800}
             fontSize={'sm'}
@@ -51,6 +51,6 @@ export default function ContractorCard({name, address, phone, website}) {
           </Text>
         </Stack>
       </Box>
-    </Center>
+    </Box>
   );
 }

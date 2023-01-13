@@ -6,7 +6,7 @@ import { HiBuildingStorefront, HiBuildingLibrary } from 'react-icons/hi2'
 import { useState } from "react"
 import OutlineTextButton from "../../../components/Quiz/OutlineTextButton";
 import GeneralLinkWrapper from "../../../components/General/GeneralLinkWrapper";
-import { getCurrentQuestion, updateFormAnswers } from "../../../utils/Utils";
+import { updateFormAnswers } from "../../../utils/Utils";
 import { useRouter } from "next/router";
 
 const buttonOptions = [
@@ -14,19 +14,19 @@ const buttonOptions = [
         value: 'h',
         bigText: 'Home',
         icon: BsFillHouseDoorFill,
-        hintLabel: 'your home!'
+        hintLabel: "A residential building in which its main purpose is to house individuals or families",
     },
     {
         value: 's',
         bigText: 'Small Business',
         icon: HiBuildingStorefront,
-        hintLabel: 'smol'
+        hintLabel: 'A building that hosts a business that has less than 100 employees.',
     },
     {
         value: 'm',
         bigText: 'Medium-sized Business',
         icon: HiBuildingLibrary,
-        hintLabel: 'mid'
+        hintLabel: 'A building that hosts a business that has 100 to 499 employees.',
     },
 ]
 

@@ -12,9 +12,9 @@ import {
 } from '@chakra-ui/react';
 
 import {
-    GiReceiveMoney,
+    GiBarrel,
     GiTreehouse,
-    GiUbisoftSun
+    GiCoalWagon
 } from 'react-icons/gi'
 
 
@@ -51,7 +51,7 @@ export default function ResultsGreen({ energykJ, trees, barrelsOil, kgCoal }) {
                         rounded={'md'}>
                         Green Impact
                     </Text>
-                    <Heading>Generate {energykJ} kJ of Green Energy!</Heading>
+                    <Heading>Generate {energykJ / 3600} kWh worth of green energy!</Heading>
                     <Text color={'gray.500'} fontSize={'lg'}>
                         This replaces:
                     </Text>
@@ -64,21 +64,21 @@ export default function ResultsGreen({ energykJ, trees, barrelsOil, kgCoal }) {
                         }>
                         <Feature
                             icon={
-                                <Icon as={GiReceiveMoney} color={'yellow.500'} w={5} h={5} />
+                                <Icon as={GiTreehouse} color={'green.800'} w={5} h={5} />
                             }
-                            iconBg={useColorModeValue('yellow.100', 'yellow.900')}
+                            iconBg={useColorModeValue('green.100', 'yellow.900')}
                             text={trees + " trees"}
                         />
                         <Feature
-                            icon={<Icon as={GiTreehouse} color={'green.500'} w={5} h={5} />}
-                            iconBg={useColorModeValue('green.100', 'green.900')}
+                            icon={<Icon as={GiBarrel} color={'green.800'} w={5} h={5} />}
+                            iconBg={useColorModeValue('green.200', 'green.900')}
                             text={barrelsOil + " barrels of Gasoline"}
                         />
                         <Feature
                             icon={
-                                <Icon as={GiUbisoftSun} color={'purple.500'} w={5} h={5} />
+                                <Icon as={GiCoalWagon} color={'green.900'} w={5} h={5} />
                             }
-                            iconBg={useColorModeValue('purple.100', 'purple.900')}
+                            iconBg={useColorModeValue('green.300', 'purple.900')}
                             text={kgCoal + " kg of Coal"}
                         />
                     </Stack>
@@ -88,7 +88,7 @@ export default function ResultsGreen({ energykJ, trees, barrelsOil, kgCoal }) {
                         rounded={'md'}
                         alt={'feature image'}
                         src={
-                            'https://images.unsplash.com/photo-1554200876-56c2f25224fa?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
+                            'https://cdn.discordapp.com/attachments/944408468243238952/1063492350770421870/Green_Impact_1.png'
                         }
                         objectFit={'cover'}
                     />

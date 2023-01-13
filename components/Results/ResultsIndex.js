@@ -12,9 +12,9 @@ import {
 } from '@chakra-ui/react';
 
 import {
-  GiReceiveMoney,
-  GiTreehouse,
-  GiUbisoftSun
+  GiFluffyCloud,
+  GiSunflower,
+  GiExtraTime
 } from 'react-icons/gi'
 
 
@@ -64,21 +64,21 @@ export default function ResultsIndex({score}) {
                       }>
                       <Feature
                           icon={
-                              <Icon as={GiReceiveMoney} color={'yellow.500'} w={5} h={5} />
+                              <Icon as={GiFluffyCloud} color={'purple.800'} w={5} h={5} />
                           }
-                          iconBg={useColorModeValue('yellow.100', 'yellow.900')}
+                          iconBg={useColorModeValue('purple.100', 'yellow.900')}
                           text={'Weather Conditions'}
                       />
                       <Feature
-                          icon={<Icon as={GiTreehouse} color={'green.500'} w={5} h={5} />}
-                          iconBg={useColorModeValue('green.100', 'green.900')}
+                          icon={<Icon as={GiSunflower} color={'purple.800'} w={5} h={5} />}
+                          iconBg={useColorModeValue('purple.200', 'green.900')}
                           text={'Hours of Sunlight by Region'}
                       />
                       <Feature
                           icon={
-                              <Icon as={GiUbisoftSun} color={'purple.500'} w={5} h={5} />
+                              <Icon as={GiExtraTime} color={'black'} w={5} h={5} />
                           }
-                          iconBg={useColorModeValue('purple.100', 'purple.900')}
+                          iconBg={useColorModeValue('purple.300', 'purple.900')}
                           text={'... and more'}
                       />
                   </Stack>
@@ -88,7 +88,7 @@ export default function ResultsIndex({score}) {
                       rounded={'md'}
                       alt={'feature image'}
                       src={
-                          'https://images.unsplash.com/photo-1554200876-56c2f25224fa?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
+                          'https://cdn.discordapp.com/attachments/944408468243238952/1063351800096374816/4.png'
                       }
                       objectFit={'cover'}
                   />
