@@ -2,11 +2,13 @@ import ResultsHero from "../../components/Results/ResultsHero";
 import LandingNav from "../../components/Landing/LandingNav";
 import { useEffect, useState } from "react";
 import { getFormAnswers } from "../../utils/Utils";
-import { Box, Flex, Spinner, Text } from "@chakra-ui/react";
+import { Box, Flex, Grid, GridItem, Spinner, Text } from "@chakra-ui/react";
 import GeneralLinkWrapper from "../../components/General/GeneralLinkWrapper";
 import ResultsSavings from "../../components/Results/ResultsSavings";
 import ResultsGreen from "../../components/Results/ResultsGreen";
 import ResultsIndex from "../../components/Results/ResultsIndex";
+import ResultsRecom from "../../components/Results/ResultsRecom";
+import ContractorCard from "../../components/Results/ContractorCard";
 
 const App = () => {
 
@@ -66,6 +68,16 @@ const App = () => {
                         <ResultsSavings savings={response.costs.savings} breakevenCost={response.costs.breakevenCost} solarPanelOutput={response.costs.solarPanelOutput} recommendedPanels={response.costs.recommendedNumberOfSolarPanels} />
                         <ResultsGreen energykJ={response.greenImpact.energyProduced} trees={response.greenImpact.treesSaved} barrelsOil={response.greenImpact.oilReplaced} kgCoal={response.greenImpact.coalReplaced} />
                         <ResultsIndex score={response.solarIndex.efficiency} />
+                        <ResultsRecom />
+                        <Grid templateColumns={'1fr 1fr'}>
+                            {response.recommendations.contractors.map((c, i) => {
+                                return (
+                                    <GridItem key={i}>
+                                        <ContractorCard name={c.name} address={c.address} phone={c.contact} website={c.website} />
+                                    </GridItem>
+                                )
+                            })}
+                        </Grid>
                     </Box>
                 ) : answers === null ? (
                     <Text>

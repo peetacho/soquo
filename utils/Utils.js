@@ -2,36 +2,34 @@
 import axios from "axios";
 
 export const getCoordinates = async (postalCode) => {
-    try {
-        const response = await axios.get(
-            'https://geocoder.ca/?geoit=XML&json=1',
-            {
-                params: {
-                    locate: postalCode,
-                    country: 'canada',
-                    auth: process.env.GEOCODER_AUTH
-                },
+    const response = await axios.get(
+        'https://geocoder.ca/?geoit=XML&json=1',
+        {
+            params: {
+                locate: postalCode,
+                country: 'canada',
+                auth: '767426689791878238751x214748873'
             },
-        );
+        },
+    );
 
-        const data = response.data;
-        return {
-            success: true,
-            coordinates: {
-                latitude: data.latt,
-                longitude: data.longt,
-            },
-            postalCode: data.postal,
-            city: data.standard.city,
-            province: data.standard.prov,
-        };
-    }
-    catch {
+    const data = response.data;
+    if (data.success === false) {
         return {
             success: false,
             message: 'Postal Code ' + postalCode + ' is invalid or does not exist.'
         }
     }
+    return {
+        success: true,
+        coordinates: {
+            latitude: data.latt,
+            longitude: data.longt,
+        },
+        postalCode: data.postal,
+        city: data.standard.city,
+        province: data.standard.prov,
+    };
 }
 
 export const getHoursOfSunlight = async (coord) => {

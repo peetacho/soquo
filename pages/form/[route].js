@@ -1,10 +1,10 @@
 import { Flex, Text } from "@chakra-ui/react";
 import OutlineButton from "../../components/Quiz/OutlineButton";
 import QuizWrapper from "../../components/Quiz/QuizWrapper";
-import { BsFillHouseDoorFill } from 'react-icons/bs'
-import { HiBuildingStorefront, HiBuildingLibrary } from 'react-icons/hi2'
+import { BsBoxSeam } from 'react-icons/bs'
+import { FaRulerHorizontal } from 'react-icons/fa'
+import { GiElectric } from 'react-icons/gi'
 import { useEffect, useState } from "react"
-import OutlineTextButton from "../../components/Quiz/OutlineTextButton";
 import GeneralLinkWrapper from "../../components/General/GeneralLinkWrapper";
 import { updateFormAnswers, getCurrentQuestion } from "../../utils/Utils";
 import { useRouter } from "next/router";
@@ -25,19 +25,22 @@ const pageOptions = [
                 value: '100',
                 bigText: 'Small',
                 smolText: '~100m²',
-                icon: BsFillHouseDoorFill,
+                icon: BsBoxSeam,
+                iconSize: '14px'
             },
             {
                 value: '250',
                 bigText: 'Medium',
                 smolText: '~250m²',
-                icon: HiBuildingStorefront,
+                icon: BsBoxSeam,
+                iconSize: '20px'
             },
             {
                 value: '500',
                 bigText: 'Large',
                 smolText: '~500m²',
-                icon: HiBuildingLibrary,
+                icon: BsBoxSeam,
+                iconSize: '24px',
             },
         ]
     },
@@ -51,19 +54,21 @@ const pageOptions = [
                 value: '0',
                 bigText: 'Flat',
                 smolText: '0°',
-                icon: BsFillHouseDoorFill,
+                icon: FaRulerHorizontal,
             },
             {
                 value: '15',
                 bigText: 'Slight',
                 smolText: '15°',
-                icon: HiBuildingStorefront,
+                icon: FaRulerHorizontal,
+                transform: 'rotate(-15deg)'
             },
             {
                 value: '30',
                 bigText: 'Medium',
                 smolText: '30°',
-                icon: HiBuildingLibrary,
+                icon: FaRulerHorizontal,
+                transform: 'rotate(-30deg)'
             },
         ]
     },
@@ -77,19 +82,22 @@ const pageOptions = [
                 value: '$50-150',
                 bigText: 'Low',
                 smolText: '$50-150',
-                icon: BsFillHouseDoorFill,
+                icon: GiElectric,
+                iconSize: '18px'
             },
             {
                 value: '$150-300',
                 bigText: 'Medium',
                 smolText: '$150-300',
-                icon: HiBuildingStorefront,
+                icon: GiElectric,
+                iconSize: '22px'
             },
             {
                 value: '$350-500',
                 bigText: 'High',
                 smolText: '$350-500',
-                icon: HiBuildingLibrary,
+                icon: GiElectric,
+                iconSize: '26px'
             },
         ]
     }
@@ -136,7 +144,9 @@ const QuizRoute = () => {
                             value={opt.value}
                             bigText={opt.bigText}
                             smolText={opt.smolText}
-                            con={opt.icon}
+                            icon={opt.icon}
+                            iconSize={opt.iconSize}
+                            transform={opt.transform}
                             hintLabel={opt.hintLabel} />
                     )
                 })}

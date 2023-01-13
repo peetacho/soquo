@@ -4,6 +4,8 @@ import QuestionMarkToolTip from "./QuestionMarkToolTip";
 
 const OutlineButton = ({
     icon,
+    iconSize = 6,
+    transform,
     bigText,
     value,
     smolText,
@@ -38,8 +40,8 @@ const OutlineButton = ({
                     setOption(!toggle ? value : '')
                     if (onClick) onClick();
                 }}>
-                <Icon as={icon} boxSize={6} />
-                <Text mt={'10px'} fontSize={'18px'} fontWeight={'bold'}>{bigText}</Text>
+                <Icon as={icon} boxSize={iconSize} transform={transform ? transform : null} />
+                <Text mt={'10px'} fontSize={'18px'} fontWeight={'bold'} >{bigText}</Text>
                 {smolText ? <Text fontSize={'12px'}>{smolText}</Text> : null}
             </Box>
             {hintLabel ? <QuestionMarkToolTip hintLabel={hintLabel} /> : null}

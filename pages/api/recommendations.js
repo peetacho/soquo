@@ -22,6 +22,6 @@ export default async function handler(req, res) {
             distanceToUser: getDistance(userCoordinateData.coordinates, doc.data().coordinates)
         })
     });
-    contractorRecs = contractorRecs.sort((a, b) => a.distanceToUser - b.distanceToUser).slice(0, 3);
+    contractorRecs = contractorRecs.sort((a, b) => a.distanceToUser - b.distanceToUser).slice(0, 4);
     res.status(200).json({ success: true, message: 'Recommendations found', contractors: contractorRecs });
 }
