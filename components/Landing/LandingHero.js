@@ -14,13 +14,6 @@ import {
 export default function LandingHero() {
   return (
     <>
-      <Head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
-
       <Container maxW={'3xl'}>
         <Stack
           as={Box}
@@ -37,8 +30,8 @@ export default function LandingHero() {
             </Text>
           </Heading>
           <Text color={'gray.500'}>
-          Featuring a hub for all things solar, viewable metrics such as return on investments, connects users to contractors, 
-          predicts the efficacy of solar panels in user's area and adapts to the user's budget and needs!
+            Featuring a hub for all things solar, viewable metrics such as return on investments, connects users to contractors,
+            predicts the efficacy of solar panels in user&apos;s area and adapts to the user&apos;s budget and needs!
           </Text>
           <Stack
             direction={'column'}
@@ -76,7 +69,7 @@ export default function LandingHero() {
                 top={'-15px'}
                 transform={'rotate(10deg)'}>
                 Get a Quote Today!
-              </Text> 
+              </Text>
             </Box>
           </Stack>
         </Stack>
