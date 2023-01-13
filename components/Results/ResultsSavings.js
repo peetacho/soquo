@@ -72,7 +72,7 @@ export default function ResultsSavings({savings, breakevenCost, solarPanelOutput
                       <Feature
                           icon={<Icon as={GiTreehouse} color={'green.500'} w={5} h={5} />}
                           iconBg={useColorModeValue('green.100', 'green.900')}
-                          text={solarPanelOutput + " W of solar panel output."}
+                          text={solarPanelOutput + "W of solar panel output."}
                       />
                       <Feature
                           icon={

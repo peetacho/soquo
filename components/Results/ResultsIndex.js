@@ -35,7 +35,7 @@ const Feature = ({ text, icon, iconBg }) => {
   );
 };
 
-export default function ResultsIndex() {
+export default function ResultsIndex({score}) {
   return (
       <Container maxW={'5xl'} py={12}>
           <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
@@ -51,7 +51,7 @@ export default function ResultsIndex() {
                       rounded={'md'}>
                       SoQuo Index
                   </Text>
-                  <Heading>SoQuo Score: 80</Heading>
+                  <Heading>SoQuo Score: {score}</Heading>
                   <Text color={'gray.500'} fontSize={'lg'}>
                       What we consider:
                   </Text>

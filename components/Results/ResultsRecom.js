@@ -1,13 +1,10 @@
 import {
   Container,
   SimpleGrid,
-  Image,
   Flex,
   Heading,
   Text,
   Stack,
-  StackDivider,
-  Icon,
   useColorModeValue,
 } from '@chakra-ui/react';
 
