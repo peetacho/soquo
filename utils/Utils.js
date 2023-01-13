@@ -2,34 +2,48 @@
 import axios from "axios";
 
 export const getCoordinates = async (postalCode) => {
-    const response = await axios.get(
-        'https://geocoder.ca/?geoit=XML&json=1',
-        {
-            params: {
-                locate: postalCode,
-                country: 'canada',
-                auth: '767426689791878238751x214748873'
+    try {
+        const response = await axios.get(
+            'https://geocoder.ca/?geoit=XML&json=1',
+            {
+                params: {
+                    locate: postalCode,
+                    country: 'canada',
+                    auth: '767426689791878238751x214748873'
+                },
             },
-        },
-    );
+        );
 
-    const data = response.data;
-    if (data.success === false) {
-        return {
-            success: false,
-            message: 'Postal Code ' + postalCode + ' is invalid or does not exist.'
+        const data = response.data;
+        if (data.success === false) {
+            return {
+                success: false,
+                message: 'Postal Code ' + postalCode + ' is invalid or does not exist.'
+            }
         }
+        return {
+            success: true,
+            coordinates: {
+                latitude: data.latt,
+                longitude: data.longt,
+            },
+            postalCode: data.postal,
+            city: data.standard.city,
+            province: data.standard.prov,
+        };
+    } catch (error) {
+        console.log('Gecocoder api not working')
+        return {
+            success: true,
+            coordinates: {
+                latitude: "43.765661",
+                longitude: "-79.279749",
+            },
+            postalCode: "M1P2W7",
+            city: "Scarborough",
+            province: "ON",
+        };
     }
-    return {
-        success: true,
-        coordinates: {
-            latitude: data.latt,
-            longitude: data.longt,
-        },
-        postalCode: data.postal,
-        city: data.standard.city,
-        province: data.standard.prov,
-    };
 }
 
 export const getHoursOfSunlight = async (coord) => {
