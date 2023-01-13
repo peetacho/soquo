@@ -16,10 +16,6 @@ const App = () => {
     const [response, setResponse] = useState();
 
     const getAllResponses = async (answers) => {
-        const solarIndexResponse = await fetch("/api/solarindex", {
-            method: "GET"
-        });
-        const solarIndex = await solarIndexResponse.json()
         const costsResponse = await fetch("/api/costs?" + new URLSearchParams({
             postalCode: answers[1].answer,
             spaceAllowed: answers[2].answer,
@@ -30,14 +26,21 @@ const App = () => {
             solarPanelOutput: costs.solarPanelOutput,
         }), { method: "GET" });
         const greenImpact = await greenImpactResponse.json()
+        const solarIndexResponse = await fetch("/api/solarindex?" + new URLSearchParams({
+            postalCode: answers[1].answer,
+            solarPanelOutput: costs.solarPanelOutput,
+            energyProduced: greenImpact.energyProduced,
+            savings: costs.savings
+        }), { method: "GET" });
+        const solarIndex = await solarIndexResponse.json()
         const recommendationsResponse = await fetch("/api/recommendations?" + new URLSearchParams({
             postalCode: answers[1].answer
         }), { method: "GET" });
         const recommendations = await recommendationsResponse.json()
         return {
-            solarIndex: solarIndex,
             costs: costs,
             greenImpact: greenImpact,
+            solarIndex: solarIndex,
             recommendations: recommendations
         }
     }
