@@ -17,7 +17,7 @@ const QuizBar = () => {
         index = getCurrentQuestion(router).id
     }
     const oranges = []
-    const MAX_NUM = 6
+    const MAX_NUM = 5
     for (let i = 0; i < MAX_NUM; i++) {
         if (i <= index) {
             oranges.push(<BarThings key={i} color={'brand.400'} />)
