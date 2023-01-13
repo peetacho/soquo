@@ -12,6 +12,11 @@ export default async function handler(req, res) {
         return;
     }
 
+    if (!req.query.tilt) {
+        res.status(400).json({ success: false, message: 'Bad request. Missing tilt in params.' })
+        return;
+    }
+
     const averageSizeOfPanel = 18 // sqft
     if (req.query.spaceAllowed < averageSizeOfPanel) {
         res.status(400).json({ success: false, message: 'Space allowed must be greater than or equal to 18 sqft or 1.67225 sqm' })
@@ -37,10 +42,19 @@ export default async function handler(req, res) {
     const energyProduced = solarPanelOutput * annualHoursOfSunlight * whToKWh; // kWh
     const savings = userElectricityCost * energyProduced // $
 
+    const panelCost = 200 * recommendedNumberOfSolarPanels;
+    const installationCost = 80 * recommendedNumberOfSolarPanels;
+    const maintenanceCost = 20 * recommendedNumberOfSolarPanels;
+    const tilt = 20;
+
+    const totalCost = panelCost + installationCost + maintenanceCost * 25; // 25 years is the typical lifespan of a solar panel
+
+    const breakevenCost = totalCost / (savings * 1.4 * (tilt / 100))
+
     res.status(200).json({
         success: true,
         message: 'Costs and Savings successfully calculated',
-        breakevenCost: Math.round((1 + Math.random()) * 10),
+        breakevenCost: Math.floor(breakevenCost),
         userElectricityCost: userElectricityCost,
         solarPanelOutput: solarPanelOutput,
         recommendedNumberOfSolarPanels: recommendedNumberOfSolarPanels,

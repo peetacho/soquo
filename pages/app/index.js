@@ -19,6 +19,7 @@ const App = () => {
         const costsResponse = await fetch("/api/costs?" + new URLSearchParams({
             postalCode: answers[1].answer,
             spaceAllowed: answers[2].answer,
+            tilt: answers[3].answer
         }), { method: "GET" });
         const costs = await costsResponse.json()
         const greenImpactResponse = await fetch("/api/greenimpact?" + new URLSearchParams({
