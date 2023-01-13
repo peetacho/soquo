@@ -1,6 +1,7 @@
 import { Box, Text } from "@chakra-ui/react"
 
 const OutlineTextButton = ({
+    w = 44,
     text,
     onClick
 }) => {
@@ -10,7 +11,7 @@ const OutlineTextButton = ({
             color={'white'}
             borderColor={'brand.200'}
             borderWidth='4px'
-            w={44}
+            w={w}
             h={12}
             overflow='hidden'
             pt={'8px'}

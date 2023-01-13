@@ -9,7 +9,7 @@ export const getCoordinates = async (postalCode) => {
                 params: {
                     locate: postalCode,
                     country: 'canada',
-                    auth: '767426689791878238751x214748873'
+                    auth: '242631809483084193558x214748876'
                 },
             },
         );
