@@ -51,7 +51,7 @@ export default function ResultsGreen({ energykJ, trees, barrelsOil, kgCoal }) {
                         rounded={'md'}>
                         Green Impact
                     </Text>
-                    <Heading>Generate {energykJ / 3600} kWh worth of green energy!</Heading>
+                    <Heading>Generate {energykJ / 3600} kWh worth of green energy per year!</Heading>
                     <Text color={'gray.500'} fontSize={'lg'}>
                         This replaces:
                     </Text>
