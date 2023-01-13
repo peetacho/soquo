@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import {
   Box,
   Heading,
@@ -10,6 +9,7 @@ import {
   useColorModeValue,
   createIcon,
 } from '@chakra-ui/react';
+import GeneralLinkWrapper from '../General/GeneralLinkWrapper';
 
 export default function LandingHero() {
   return (
@@ -22,7 +22,7 @@ export default function LandingHero() {
           py={{ base: 20, md: 36 }}>
           <Heading
             fontWeight={600}
-            fontSize={{ base: '2xl', sm: '4xl', md: '6xl' }}
+            fontSize={{ base: '2xl', sm: '4xl', md: '7xl' }}
             lineHeight={'110%'}>
             Your One-Stop <br />
             <Text as={'span'} color={'orange.400'}>
@@ -39,19 +39,18 @@ export default function LandingHero() {
             align={'center'}
             alignSelf={'center'}
             position={'relative'}>
-            <Button
-              colorScheme={'orange'}
-              bg={'orange.400'}
-              rounded={'full'}
-              px={6}
-              _hover={{
-                bg: 'orange.500',
-              }}>
-              Try it Now
-            </Button>
-            <Button variant={'link'} colorScheme={'blue'} size={'sm'}>
-              Learn more
-            </Button>
+            <GeneralLinkWrapper href="/form">
+              <Button
+                colorScheme={'orange'}
+                bg={'orange.400'}
+                rounded={'full'}
+                px={6}
+                _hover={{
+                  bg: 'orange.500',
+                }}>
+                Try it Now
+              </Button>
+            </GeneralLinkWrapper>
             <Box>
               <Icon
                 as={Arrow}

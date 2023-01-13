@@ -1,7 +1,8 @@
-import { Box, Flex, Stack, Text } from "@chakra-ui/react";
+import { Box, Flex, Stack, Text, Icon, Link } from "@chakra-ui/react";
 import GeneralStackWrapper from "../General/GeneralStackWrapper";
 import Header from "./Header";
 import QuizBar from "./QuizBar";
+import {FaLightbulb} from 'react-icons/fa'
 
 const QuizWrapper = ({
     headerText,
@@ -21,7 +22,10 @@ const QuizWrapper = ({
                     {otherProps.children}
                 </Stack>
                 <Flex textAlign={'center'} mt={'10px !important'} mb={'50px !important'}>
-                    <Text>Did you know? That Koala&apos;s run on trees. Click here to learn more.</Text>
+                    <Icon as={FaLightbulb} marginTop={1}></Icon>
+                    <Text marginLeft={2}>Did you know? You may be eligible for a $5000 federal grant. {" "}
+                        <Link href="https://www.solacity.com/solar-rebates-and-incentives-in-canada/" isExternal>Click here to learn more.</Link>
+                    </Text>
                 </Flex>
             </GeneralStackWrapper>
         </>

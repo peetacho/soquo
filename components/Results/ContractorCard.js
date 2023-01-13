@@ -4,7 +4,6 @@ import {
   Heading,
   Text,
   Stack,
-  Avatar,
   Link,
   Icon,
   useColorModeValue,

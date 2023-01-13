@@ -7,6 +7,7 @@ import {
   Stack,
   Collapse,
   Icon,
+  Image,
   Link,
   Popover,
   PopoverTrigger,
@@ -21,6 +22,7 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from '@chakra-ui/icons';
+import GeneralLinkWrapper from '../General/GeneralLinkWrapper';
 
 export default function LandingNav() {
   const { isOpen, onToggle } = useDisclosure();
@@ -51,14 +53,14 @@ export default function LandingNav() {
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-          <Text
-            textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
-            fontFamily={'heading'}
-            color={useColorModeValue('gray.800', 'white')}>
-            SoQuo
-          </Text>
-
-          <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
+          <GeneralLinkWrapper href="/">
+            <Image
+              maxHeight="9" 
+              src='https://cdn.discordapp.com/attachments/803390264974376980/1063327533107531889/SoQuo_Logo.png'
+              alt='Dan Abramov'>
+            </Image>
+          </GeneralLinkWrapper>
+          <Flex display={{ base: 'none', md: 'flex' }} ml={10} mt={2}>
             <DesktopNav />
           </Flex>
         </Flex>
@@ -68,26 +70,20 @@ export default function LandingNav() {
           justify={'flex-end'}
           direction={'row'}
           spacing={6}>
-          <Button
-            as={'a'}
-            fontSize={'sm'}
-            fontWeight={400}
-            variant={'link'}
-            href={'#'}>
-            Sign In
-          </Button>
-          <Button
-            display={{ base: 'none', md: 'inline-flex' }}
-            fontSize={'sm'}
-            fontWeight={600}
-            color={'white'}
-            bg={'orange.400'}
-            href={'#'}
-            _hover={{
-              bg: 'orange.300',
-            }}>
-            Sign Up
-          </Button>
+          <GeneralLinkWrapper href="/form">
+            <Button
+              display={{ base: 'none', md: 'inline-flex' }}
+              fontSize={'sm'}
+              fontWeight={600}
+              color={'white'}
+              bg={'orange.400'}
+              href={'#'}
+              _hover={{
+                bg: 'orange.300',
+              }}>
+              Get a Free Quote Today! 
+            </Button>
+          </GeneralLinkWrapper>
         </Stack>
       </Flex>
 
@@ -110,6 +106,7 @@ const DesktopNav = () => {
           <Popover trigger={'hover'} placement={'bottom-start'}>
             <PopoverTrigger>
               <Link
+                isExternal
                 p={2}
                 href={navItem.href ?? '#'}
                 fontSize={'sm'}
@@ -148,6 +145,7 @@ const DesktopNav = () => {
 const DesktopSubNav = ({ label, href, subLabel }) => {
   return (
     <Link
+      isExternal
       href={href}
       role={'group'}
       display={'block'}
@@ -200,6 +198,7 @@ const MobileNavItem = ({ label, children, href }) => {
       <Flex
         py={2}
         as={Link}
+        isExternal
         href={href ?? '#'}
         justify={'space-between'}
         align={'center'}
@@ -244,41 +243,15 @@ const MobileNavItem = ({ label, children, href }) => {
 
 const NAV_ITEMS = [
   {
-    label: 'Inspiration',
-    children: [
-      {
-        label: 'Explore Design Work',
-        subLabel: 'Trending Design to inspire you',
-        href: '#',
-      },
-      {
-        label: 'New & Noteworthy',
-        subLabel: 'Up-and-coming Designers',
-        href: '#',
-      },
-    ],
+    label: 'About Us',
+    href: 'https://medium.com/@soquo/soquo-about-us-8e6705fb9bcc',
   },
   {
-    label: 'Find Work',
-    children: [
-      {
-        label: 'Job Board',
-        subLabel: 'Find your dream design job',
-        href: '#',
-      },
-      {
-        label: 'Freelance Projects',
-        subLabel: 'An exclusive list for contract work',
-        href: '#',
-      },
-    ],
+    label: 'Solar: Explained',
+    href: 'https://medium.com/@soquo/soquo-the-solar-stop-301b0063227a',
   },
   {
-    label: 'Learn Design',
-    href: '#',
-  },
-  {
-    label: 'Hire Designers',
-    href: '#',
+    label: 'Solar Canadian Grants',
+    href: 'https://medium.com/@soquo/soquo-solar-canadian-grants-410116f95cd4',
   },
 ];

@@ -10,7 +10,7 @@ export default function Quiz() {
             <div>Welcome to the quiz, press next to start!</div>
             <Flex justifyContent={'center'} alignItems={'center'}>
                 <GeneralLinkWrapper href={'/form/' + quizOrder[0].route}>
-                    <OutlineTextButton text={'Start the quiz'} />
+                    <OutlineTextButton text={'Start the Quiz'} />
                 </GeneralLinkWrapper>
             </Flex>
         </QuizWrapper>
