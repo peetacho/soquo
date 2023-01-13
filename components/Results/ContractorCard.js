@@ -46,7 +46,8 @@ export default function ContractorCard({name, address, phone, website}) {
           </Text>
           <Text color={'gray.500'}>
             <Icon as={MdWeb} /> {" "} 
-            <Link href={website} isExternal> {website}
+            <Link href={website} isExternal> 
+              {website}
             </Link>
           </Text>
         </Stack>

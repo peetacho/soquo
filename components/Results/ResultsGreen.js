@@ -35,25 +35,25 @@ const Feature = ({ text, icon, iconBg }) => {
   );
 };
 
-export default function ResultsHero({dollars, trees, score}) {
+export default function ResultsGreen({energykJ, trees, barrelsOil, tonnesCoal}) {
   return (
       <Container maxW={'5xl'} py={12}>
           <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
               <Stack spacing={4}>
                   <Text
                       textTransform={'uppercase'}
-                      color={'orange.400'}
+                      color={'green.400'}
                       fontWeight={600}
                       fontSize={'sm'}
-                      bg={useColorModeValue('orange.50', 'orange.900')}
+                      bg={useColorModeValue('green.50', 'green.900')}
                       p={2}
                       alignSelf={'flex-start'}
                       rounded={'md'}>
-                      Summary
+                      Green Impact
                   </Text>
-                  <Heading>Here are your insights:</Heading>
+                  <Heading>Generate {energykJ} kJ of Green Energy!</Heading>
                   <Text color={'gray.500'} fontSize={'lg'}>
-                      Find out how you did across three pillars: cost & savings, green impact and our own SoQuo Index!
+                      This replaces:
                   </Text>
                   <Stack
                       spacing={4}
@@ -67,19 +67,19 @@ export default function ResultsHero({dollars, trees, score}) {
                               <Icon as={GiReceiveMoney} color={'yellow.500'} w={5} h={5} />
                           }
                           iconBg={useColorModeValue('yellow.100', 'yellow.900')}
-                          text={"$" + dollars + " saved per year!"}
+                          text={trees + " trees"}
                       />
                       <Feature
                           icon={<Icon as={GiTreehouse} color={'green.500'} w={5} h={5} />}
                           iconBg={useColorModeValue('green.100', 'green.900')}
-                          text={trees + " saved!"}
+                          text={barrelsOil + " barrels of Oil"}
                       />
                       <Feature
                           icon={
                               <Icon as={GiUbisoftSun} color={'purple.500'} w={5} h={5} />
                           }
                           iconBg={useColorModeValue('purple.100', 'purple.900')}
-                          text={score + " SoQuo Score"}
+                          text={tonnesCoal + " tonnes of Coal"}
                       />
                   </Stack>
               </Stack>
