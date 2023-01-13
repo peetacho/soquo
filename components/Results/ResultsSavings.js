@@ -35,25 +35,25 @@ const Feature = ({ text, icon, iconBg }) => {
   );
 };
 
-export default function ResultsGreen({energykJ, trees, barrelsOil, tonnesCoal}) {
+export default function ResultsSavings({savings, breakevenCost, solarPanelOutput, recommendedPanels}) {
   return (
       <Container maxW={'5xl'} py={12}>
           <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
               <Stack spacing={4}>
                   <Text
                       textTransform={'uppercase'}
-                      color={'green.400'}
+                      color={'yellow.400'}
                       fontWeight={600}
                       fontSize={'sm'}
-                      bg={useColorModeValue('green.50', 'green.900')}
+                      bg={useColorModeValue('yellow.50', 'yellow.900')}
                       p={2}
                       alignSelf={'flex-start'}
                       rounded={'md'}>
-                      Green Impact
+                      Costs & Savings
                   </Text>
-                  <Heading>Generate {energykJ} kJ of Green Energy!</Heading>
+                  <Heading>Save ${savings} per year!</Heading>
                   <Text color={'gray.500'} fontSize={'lg'}>
-                      This replaces:
+                      
                   </Text>
                   <Stack
                       spacing={4}
@@ -67,19 +67,19 @@ export default function ResultsGreen({energykJ, trees, barrelsOil, tonnesCoal}) 
                               <Icon as={GiReceiveMoney} color={'yellow.500'} w={5} h={5} />
                           }
                           iconBg={useColorModeValue('yellow.100', 'yellow.900')}
-                          text={trees + " trees"}
+                          text={breakevenCost + " years to breakeven!"}
                       />
                       <Feature
                           icon={<Icon as={GiTreehouse} color={'green.500'} w={5} h={5} />}
                           iconBg={useColorModeValue('green.100', 'green.900')}
-                          text={barrelsOil + " barrels of Oil"}
+                          text={solarPanelOutput + " W of solar panel output."}
                       />
                       <Feature
                           icon={
                               <Icon as={GiUbisoftSun} color={'purple.500'} w={5} h={5} />
                           }
                           iconBg={useColorModeValue('purple.100', 'purple.900')}
-                          text={tonnesCoal + " tonnes of Coal"}
+                          text={recommendedPanels + " number of recommended panels."}
                       />
                   </Stack>
               </Stack>
