@@ -157,7 +157,7 @@ const QuizRoute = () => {
                     setOption('')
                     setInput(e.target.value)
                 }} />
-                <QuestionMarkToolTip hintLabel={'hallo!'} />
+                <QuestionMarkToolTip hintLabel={'This helps us to get a better understanding of solar panel efficiency and optimization for your roof, and how much one is able to save.'} />
                 <GeneralLinkWrapper href={nextHref}>
                     <OutlineIconButton icon={IoMdArrowRoundForward} onClick={() => {
                         updateFormAnswers(router, input ? input : selectedOption);

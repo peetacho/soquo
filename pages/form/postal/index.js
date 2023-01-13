@@ -46,7 +46,7 @@ const PostalCode = () => {
             descriptionText={<>Provide us with your Postal Code for increased accuracy.</>}
         >
             <Flex my={'30px !important'} gap={'15px'} alignItems={'center'}>
-                <QuestionMarkToolTip placement="left" hintLabel={'For more accurate hours of sunlight.'} />
+                <QuestionMarkToolTip placement="left" hintLabel={'Provide us with your postal code for us to get a better idea for the hours of sunlight within your region, and your electricity costs!'} />
                 <OutlineInput placeHolderText={'ABC 123'} value={postal} handleChange={(e) => { setPostal(e.target.value) }} />
                 <OutlineIconButton icon={IoMdArrowRoundForward} onClick={() => {
                     checkPostalCode(postal)
