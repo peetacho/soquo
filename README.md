@@ -1,4 +1,7 @@
-# SoQuo: Your One-Stop Solar Shop
+# SoQuo
+
+![Green Impact (1350 × 400 px)](https://user-images.githubusercontent.com/68998300/212426188-937c8238-36e2-44be-86d5-5bdd34e5c514.png)
+
 
 ## Overview
 
@@ -11,6 +14,8 @@ SoQuo is a web application that compares an individual's current household using
 Details of our solution include: Our tech stack is: React, NextJS, NodeJS and Firebase Firestore. The frameworks that we used are: NodeJS, NextJS and ReactJS. The main programming language is JavaScript. We deployed our service on Vercel.  
 
 ## Architecture Diagram:
+
+![User (4)](https://user-images.githubusercontent.com/68998300/212426286-a5b1e667-e4b4-4629-861e-8770cff065f5.png)
 
 ## Key Technical Components:
 
