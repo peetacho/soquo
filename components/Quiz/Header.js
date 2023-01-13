@@ -31,7 +31,9 @@ const Header = () => {
                 </Box>
                 <Logo />
                 <Flex flexGrow={1} flexBasis={0} justifyContent={'flex-end'}>
-                    <BoldedTextButton text={'Learn More'} />
+                    <GeneralLinkWrapper href={'https://medium.com/@soquo/soquo-the-solar-stop-301b0063227a'} isExternal>
+                        <BoldedTextButton text={'Learn More'} />
+                    </GeneralLinkWrapper>
                 </Flex>
             </Flex>
         </>
