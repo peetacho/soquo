@@ -8,7 +8,8 @@ export const getCoordinates = async (postalCode) => {
             {
                 params: {
                     locate: postalCode,
-                    country: 'canada'
+                    country: 'canada',
+                    auth: process.env.GEOCODER_AUTH
                 },
             },
         );

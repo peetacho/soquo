@@ -33,7 +33,7 @@ export default async function handler(req, res) {
     var oilEnergyDensity = 45; // MJ/kg
     var gasolineDensity = 0.75; // kg/l
     var mJTokJ = 1000; // kJ/MJ
-    const oilReplaced = energyProduced / (oilEnergyDensity * gasolineDensity * mJTokJ); // liter
+    const oilReplaced = Math.round(energyProduced / (oilEnergyDensity * gasolineDensity * mJTokJ) / 159); // barrels
 
     // Coal replaced (in kg) = Energy produced by solar panel (in kJ) / Energy density of coal (in kJ/kilogram)
     var coalEnergyDensity = 24; // MJ/kg

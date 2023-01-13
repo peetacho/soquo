@@ -2,8 +2,11 @@ import ResultsHero from "../../components/Results/ResultsHero";
 import LandingNav from "../../components/Landing/LandingNav";
 import { useEffect, useState } from "react";
 import { getFormAnswers } from "../../utils/Utils";
-import { Flex, Spinner, Text } from "@chakra-ui/react";
+import { Box, Flex, Spinner, Text } from "@chakra-ui/react";
 import GeneralLinkWrapper from "../../components/General/GeneralLinkWrapper";
+import ResultsSavings from "../../components/Results/ResultsSavings";
+import ResultsGreen from "../../components/Results/ResultsGreen";
+import ResultsIndex from "../../components/Results/ResultsIndex";
 
 const App = () => {
 
@@ -57,10 +60,13 @@ const App = () => {
             <Flex height={'100vh'} flexDirection={'column'}>
                 <LandingNav />
 
-                {(answers !== null && response && response !== null) ? (
-                    <>
-                        <ResultsHero />
-                    </>
+                {(answers !== null && response && response !== {} && response !== null) ? (
+                    <Box>
+                        <ResultsHero dollars={response.costs.savings} trees={response.greenImpact.treesSaved} score={response.solarIndex.efficiency} />
+                        <ResultsSavings savings={response.costs.savings} breakevenCost={response.costs.breakevenCost} solarPanelOutput={response.costs.solarPanelOutput} recommendedPanels={response.costs.recommendedNumberOfSolarPanels} />
+                        <ResultsGreen energykJ={response.greenImpact.energyProduced} trees={response.greenImpact.treesSaved} barrelsOil={response.greenImpact.oilReplaced} kgCoal={response.greenImpact.coalReplaced} />
+                        <ResultsIndex score={response.solarIndex.efficiency} />
+                    </Box>
                 ) : answers === null ? (
                     <Text>
                         Please fill in the form <GeneralLinkWrapper href="/form"><Text as={'span'} color={'brand.400'}>here</Text></GeneralLinkWrapper>!
