@@ -138,3 +138,8 @@ export const updateFormAnswers = (router, ans) => {
 export const deleteFormAnswers = () => {
     localStorage.setItem("soquo-form-answers", "[]")
 }
+
+export const getFormAnswers = () => {
+    var formAnswersList = JSON.parse(localStorage.getItem("soquo-form-answers"));
+    return formAnswersList;
+}
