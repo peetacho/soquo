@@ -1,4 +1,4 @@
-# SoQuo
+# SoQuo: Your One-Stop Solar Shop
 
 ## Overview
 
@@ -21,28 +21,26 @@ For the algorithms used for each of the pillars, it can be seen below:
 For cost and savings, we use the following formula in order to calculate the breakeven cost: The breakeven point for a solar panel installation is the point at which the savings on electricity costs equal the initial investment. In other words, it's the point at which the homeowner will have made back the money they spent on the solar panel system.
 
 To calculate the breakeven point, we use a formula that takes into account several factors:
-The size of the solar panel array in square meters
-The cost of electricity in dollars per kilowatt-hour
-The cost of the solar panels in dollars
-The cost of installation in dollars
-The annual cost of maintenance in dollars
-The efficiency of the solar panels as a decimal (e.g. 0.15 for 15%)
-The tilt of the solar panels in degrees
+- The size of the solar panel array in square meters
+- The cost of electricity in dollars per kilowatt-hour
+- The cost of the solar panels in dollars
+- The cost of installation in dollars
+- The annual cost of maintenance in dollars
+- The efficiency of the solar panels as a decimal (e.g. 0.15 for 15%)
+- The tilt of the solar panels in degrees
 
 The formula for calculating the breakeven point is: totalCost / (annualEnergy * electricityCost) such that “totalCost = panelCost + installationCost + maintenanceCost * 25” and “annualEnergy = area * efficiency * (1 + tilt/90) * 4.6”, where 25 is the typical lifespan of a solar panel and 4.6 is the yearly average solar radiation of Canada.
 
 #### Algorithms: Green Impact
 
 For the green impact, we use the given formulas in order to calculate the amount of green energy produced, and its visualizations:
+- The first formula we use calculates the energy produced by the solar panel array, measured in kilojoules. It multiplies the solar panel output, measured in watts, by the number of hours of sunlight and a conversion factor of 3.6 kJ/Wh. 
 
-The first formula we use calculates the energy produced by the solar panel array, measured in kilojoules. It multiplies the solar panel output, measured in watts, by the number of hours of sunlight and a conversion factor of 3.6 kJ/Wh. 
+- The second formula calculates the amount of oil (or gasoline) replaced by the solar panel array, measured in litres. It divides the energy produced by the solar panel array by the energy density of gasoline, the density of gasoline, and a conversion factor of 1000 kJ/MJ. 
 
-The second formula calculates the amount of oil (or gasoline) replaced by the solar panel array, measured in litres. It divides the energy produced by the solar panel array by the energy density of gasoline, the density of gasoline, and a conversion factor of 1000 kJ/MJ. 
+- The third formula calculates the amount of coal replaced by the solar panel array, measured in kilograms. It divides the energy produced by the solar panel array by the energy density of coal and a conversion factor of 1000 kJ/MJ. 
 
-The third formula calculates the amount of coal replaced by the solar panel array, measured in kilograms. It divides the energy produced by the solar panel array by the energy density of coal and a conversion factor of 1000 kJ/MJ. 
-
-The fourth formula calculates the number of trees that are saved by the solar panel array, measured in number of trees. It multiplies the energy produced by the solar panel array by the CO2 emissions per kWh and divides that by the tree sequestration rate.
-
+- The fourth formula calculates the number of trees that are saved by the solar panel array, measured in number of trees. It multiplies the energy produced by the solar panel array by the CO2 emissions per kWh and divides that by the tree sequestration rate.
 
 #### Algorithms: SoQuo Index
 
