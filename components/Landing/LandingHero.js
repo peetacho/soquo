@@ -39,7 +39,7 @@ export default function LandingHero() {
             align={'center'}
             alignSelf={'center'}
             position={'relative'}>
-            <GeneralLinkWrapper href="/form">
+            <GeneralLinkWrapper href="/">
               <Button
                 colorScheme={'orange'}
                 bg={"#6677C4"}

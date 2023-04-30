@@ -1,12 +1,12 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
-import OutlineButton from "../../../components/Quiz/OutlineButton";
-import QuizWrapper from "../../../components/Quiz/QuizWrapper";
+import OutlineButton from "../../components/Quiz/OutlineButton";
+import QuizWrapper from "../../components/Quiz/QuizWrapper";
 import { BsFillHouseDoorFill } from 'react-icons/bs'
 import { HiBuildingStorefront, HiBuildingLibrary } from 'react-icons/hi2'
 import { useState } from "react"
-import OutlineTextButton from "../../../components/Quiz/OutlineTextButton";
-import GeneralLinkWrapper from "../../../components/General/GeneralLinkWrapper";
-import { updateFormAnswers } from "../../../utils/Utils";
+import OutlineTextButton from "../../components/Quiz/OutlineTextButton";
+import GeneralLinkWrapper from "../../components/General/GeneralLinkWrapper";
+import { updateFormAnswers } from "../../utils/Utils";
 import { useRouter } from "next/router";
 
 const buttonOptions = [
@@ -46,7 +46,7 @@ const Location = () => {
             </Flex>
             {selectedOption ? (
                 <Flex justifyContent={'center'} mt={'35px !important'}>
-                    <GeneralLinkWrapper href={'/form/postal'}>
+                    <GeneralLinkWrapper href={'/postal'}>
                         <OutlineTextButton text={'Submit'} onClick={() => {
                             updateFormAnswers(router, selectedOption);
                         }} />

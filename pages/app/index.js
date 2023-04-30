@@ -87,7 +87,7 @@ const App = () => {
                     </Box>
                 ) : answers === null ? (
                     <Text>
-                        Please fill in the form <GeneralLinkWrapper href="/form"><Text as={'span'} color={'brand.400'}>here</Text></GeneralLinkWrapper>!
+                        Please fill in the form <GeneralLinkWrapper href="/"><Text as={'span'} color={'brand.400'}>here</Text></GeneralLinkWrapper>!
                     </Text>
                 ) : (
                     <Flex margin={12} justifyContent={'center'} alignItems={'center'} gap={'10px'}>

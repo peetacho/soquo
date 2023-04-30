@@ -55,7 +55,7 @@ export default function LandingNav() {
         <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
           <GeneralLinkWrapper href="/">
             <Image
-              maxHeight="9" 
+              maxHeight="9"
               src='https://cdn.discordapp.com/attachments/803390264974376980/1063327533107531889/SoQuo_Logo.png'
               alt='Dan Abramov'>
             </Image>
@@ -70,7 +70,7 @@ export default function LandingNav() {
           justify={'flex-end'}
           direction={'row'}
           spacing={6}>
-          <GeneralLinkWrapper href="/form">
+          <GeneralLinkWrapper href="/">
             <Button
               display={{ base: 'none', md: 'inline-flex' }}
               fontSize={'sm'}
@@ -81,7 +81,7 @@ export default function LandingNav() {
               _hover={{
                 bg: '#849BFF',
               }}>
-              Get a Free Assessment Today! 
+              Get a Free Assessment Today!
             </Button>
           </GeneralLinkWrapper>
         </Stack>

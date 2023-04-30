@@ -9,15 +9,17 @@ import { quizOrder } from "../../utils/constants";
 
 const Header = () => {
     const router = useRouter()
-    var backHref = '/'
-    if (router.asPath !== '/form' && getCurrentQuestion(router)) {
+    var backHref = 'https://soquo.vercel.app/'
+    console.log(router.asPath, getCurrentQuestion(router))
+    if (router.asPath !== '/' && getCurrentQuestion(router)) {
         // this assumes the user is behaving (i.e. they go on the correct routes)
         var currentQuestion = getCurrentQuestion(router)
+        console.log(currentQuestion)
         if (currentQuestion.id !== 0) {
-            backHref = '/form/' + quizOrder[currentQuestion.id - 1].route
+            backHref = '/' + quizOrder[currentQuestion.id - 1].route
         }
         else if (currentQuestion.id == 0) {
-            backHref = '/form'
+            backHref = '/'
         }
     }
     return (
@@ -26,7 +28,7 @@ const Header = () => {
                 <Box flexGrow={1} flexBasis={0}>
                     <GeneralLinkWrapper href={backHref}>
                         <ChevronLeftIcon />
-                        {router.asPath === '/form' ? 'Home' : 'Back'}
+                        {router.asPath === '/' ? 'Home' : 'Back'}
                     </GeneralLinkWrapper>
                 </Box>
                 <Logo />

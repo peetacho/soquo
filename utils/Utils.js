@@ -126,7 +126,7 @@ import { quizOrder } from "./constants";
 
 // route is from useRouter
 export const getCurrentQuestion = (router) => {
-    return quizOrder.filter(question => router.asPath === '/form/' + question.route)[0]
+    return quizOrder.filter(question => router.asPath === '/' + question.route)[0]
 }
 
 export const updateFormAnswers = (router, ans) => {
@@ -139,7 +139,7 @@ export const updateFormAnswers = (router, ans) => {
         quizOrder.forEach((item) => {
             formAnswersList.push({
                 id: item.id,
-                route: '/form/' + item.route,
+                route: '/' + item.route,
                 answer: '',
             })
         })

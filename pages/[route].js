@@ -1,17 +1,17 @@
 import { Flex, Text } from "@chakra-ui/react";
-import OutlineButton from "../../components/Quiz/OutlineButton";
-import QuizWrapper from "../../components/Quiz/QuizWrapper";
+import OutlineButton from "../components/Quiz/OutlineButton";
+import QuizWrapper from "../components/Quiz/QuizWrapper";
 import { BsBoxSeam } from 'react-icons/bs'
 import { FaRulerHorizontal } from 'react-icons/fa'
 import { GiElectric } from 'react-icons/gi'
 import { useEffect, useState } from "react"
-import GeneralLinkWrapper from "../../components/General/GeneralLinkWrapper";
-import { updateFormAnswers, getCurrentQuestion } from "../../utils/Utils";
+import GeneralLinkWrapper from "../components/General/GeneralLinkWrapper";
+import { updateFormAnswers, getCurrentQuestion } from "../utils/Utils";
 import { useRouter } from "next/router";
-import { quizOrder } from "../../utils/constants";
-import QuestionMarkToolTip from "../../components/Quiz/QuestionMarkToolTip";
-import OutlineInput from "../../components/Quiz/OutlineInput";
-import OutlineIconButton from "../../components/Quiz/OutlineIconButton";
+import { quizOrder } from "../utils/constants";
+import QuestionMarkToolTip from "../components/Quiz/QuestionMarkToolTip";
+import OutlineInput from "../components/Quiz/OutlineInput";
+import OutlineIconButton from "../components/Quiz/OutlineIconButton";
 import { IoMdArrowRoundForward } from "react-icons/io";
 
 const pageOptions = [
@@ -119,7 +119,7 @@ const QuizRoute = () => {
             var nextHref = '/app'
         }
         else {
-            var nextHref = '/form/' + quizOrder[getCurrentQuestion(router).id + 1].route;
+            var nextHref = quizOrder[getCurrentQuestion(router).id + 1].route;
         }
         cqIndex = getCurrentQuestion(router).id - 2
     }

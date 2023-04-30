@@ -1,13 +1,13 @@
 import { Box, Flex, Text, useToast } from "@chakra-ui/react";
 import { useState } from "react";
-import OutlineIconButton from "../../../components/Quiz/OutlineIconButton";
-import OutlineInput from "../../../components/Quiz/OutlineInput";
-import QuizWrapper from "../../../components/Quiz/QuizWrapper";
+import OutlineIconButton from "../../components/Quiz/OutlineIconButton";
+import OutlineInput from "../../components/Quiz/OutlineInput";
+import QuizWrapper from "../../components/Quiz/QuizWrapper";
 import { IoMdArrowRoundForward } from 'react-icons/io'
 import { useRouter } from "next/router";
-import { getCoordinates, updateFormAnswers } from "../../../utils/Utils";
-import QuestionMarkToolTip from "../../../components/Quiz/QuestionMarkToolTip";
-import GeneralLinkWrapper from "../../../components/General/GeneralLinkWrapper";
+import { getCoordinates, updateFormAnswers } from "../../utils/Utils";
+import QuestionMarkToolTip from "../../components/Quiz/QuestionMarkToolTip";
+import GeneralLinkWrapper from "../../components/General/GeneralLinkWrapper";
 
 const PostalCode = () => {
     const [postal, setPostal] = useState('');
@@ -28,7 +28,7 @@ const PostalCode = () => {
         const response = await getCoordinates(postal)
         if (response.success) {
             updateFormAnswers(router, postal);
-            window.location = '/form/area'
+            window.location = '/area'
             return
         }
         else {
